@@ -1,0 +1,17 @@
+Dalam beberapa hari ini kita harus segera melakukan penjadwalan dan pembagian tugas untuk kelanjutan dari tugas ADS. 
+Karena sekarang kita memasuki minggu ke-11 Cah. Yuk semangat mengerjakan deadline Tugas ADS ini. Terima kasih.
+
+Command yang perlu diperhatikan adalah :
+
+1) git pull origin master -> digunakan untuk mendownload file" update di Git. kalau enggk ada perubahan berarti file yang ada di laptop kalian (localhost) sudah update.
+
+2) git add . -> digunakan untuk merumuskan file-file yang akan diupload
+
+3) git status -> untuk melihat file" apa saja ayng sudah di edit, nanti akan muncul warna merah pada tulisan. Baru dilakukan git add . maka dicek lagi statusnya tulisan berubah menjadi hijau. Tandanya file siap diupload.
+
+4) git commit -m "Komentar" -> digunakan untuk memberikan komentar pada file yang telah diedit. Isikan komentar di dalam petik dua.
+
+5) git push origin master -> digunakan untuk menge-push file yang ada di github tanpa mereplace semua file yang ada di github, file yang tyerjadi perubahan hanya file yang sudah diedit di localhost.
+
+6) git stash -> untuk menyimpan file (sifatnya sementara seperti cache) yg sudah diedit, ini digunakan ketika enggk bisa upload file dikarenakan dalam waktu bersamaan ada dua orang yang sama" ngedit. Yang A sudah di upload, otmotatis yang B harus git pull dulu untuk mendapatkan data terbaru. baru kemudian si B bisa upload lagi.
+
