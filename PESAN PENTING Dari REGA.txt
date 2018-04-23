@@ -16,3 +16,5 @@ Command yang perlu diperhatikan adalah :
 6) git stash -> untuk menyimpan file (sifatnya sementara seperti cache) yg sudah diedit, ini digunakan ketika enggk bisa upload file dikarenakan dalam waktu bersamaan ada dua orang yang sama" ngedit. Yang A sudah di upload, otmotatis yang B harus git pull dulu untuk mendapatkan data terbaru. baru kemudian si B bisa upload lagi.
 
 YESIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIi
+
+regaaaaaa
