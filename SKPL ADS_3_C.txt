@@ -67,3 +67,22 @@
 		- 
 
 3.2 Kebutuhan Fungsional
+	- User dapat membooking lahan pemakaman.
+	- User dapat mengetahui lokasi spesifik pemakaman.
+	- User dapat mengetahui masa sewa lahan pemakaman.
+	- User dapat melakukan perpanjangan sewa lahan pemakaman.
+
+3.3 Kebutuhan Data
+
+
+3.4 Kebutuhan Non Fungsional
+	- Operational
+	- Performance -> Waktu yang dibutuhkan untuk memesan lahan pemakaman 			 cepat kurang lebih 2 menit (tergantung koneksi).
+	- Security 
+	   • Sistem pengaman ketika user melakukan perpanjangan lahan 	     pemakaman.
+	   • Membutuhkan sistem untuk mengamankan proses transaksi.
+
+
+3.5 Batasan Perancangan
+3.6 Kerunutan (Traceability)
+3.7 Ringkasan Kebutuhan
