@@ -1,0 +1,660 @@
+
+SKPL-04
+
+
+
+
+
+SISTEM INFORMASI LAYANAN KEMATIAN
+untuk:
+
+Monster’s Corporation
+
+
+
+
+Dipersiapkan oleh: Grup 03
+150535601299 / Siti Nurwakiah B.
+
+150535601484 / Yesi Krisdiani
+
+150535601626 / Youngga Rega Nugraha
+
+
+
+
+
+Program Studi Teknik Informatika / Jurusan Teknik Elektro
+
+TI - UM
+
+Jl. Semarang 5 Malang 65145
+
+
+
+
+
+
+
+Program Studi Teknik Informatika / Jurusan Teknik Elektro TI - UM
+NomorDokumen
+Halaman
+
+
+DAFTAR PERUBAHAN
+
+RevisiDeskripsiABCDEFG
+
+
+
+INDEX
+TGL-ABCDEFG
+Ditulis oleh
+Diperiksa oleh
+Disetujui oleh
+
+
+
+
+	Daftar Halaman Perubahan
+
+
+Halaman
+Revisi
+Halaman
+Revisi
+Daftar Isi
+1. Pendahuluan ........................................................................................................................................................ 7
+1.1      Tujuan Penulisan Dokumen..................................................................................................................... 7
+1.2      Lingkup Masalah ..................................................................................................................................... 7
+1.3      Definisi, Istilah dan Singkatan................................................................................................................ 7
+1.4      Aturan Penomoran ................................................................................................................................... 7
+1.5      Referensi.................................................................................................................................................. 8
+1.6      Deskripsi umum Dokumen (Ikhtisar) ...................................................................................................... 8
+2     Deskripsi Umum Perangkat Lunak.................................................................................................................. 9
+2.1      Deskripsi Umum Sistem .......................................................................................................................... 9
+2.2      Karakteristik Pengguna.......................................................................................................................... 10
+2.3      Batasan .................................................................................................................................................. 10
+2.4      Lingkungan Operasi .............................................................................................................................. 10
+3     Deskripsi Kebutuhan ..................................................................................................................................... 11
+3.1      Kebutuhan Antarmuka Eksternal........................................................................................................... 11
+3.1.1       Antarmuka pemakai....................................................................................................................... 11
+3.1.2       Antarmuka Perangkat Keras .......................................................................................................... 11
+3.1.3       Antarmuka Perangkat Lunak ......................................................................................................... 11
+3.1.4       Antarmuka Komunikasi................................................................................................................. 12
+3.2      Kebutuhan Fungsional ........................................................................................................................... 12
+3.2.1       Diagram Konteks ........................................................................................................................... 15
+3.2.2       DFD Level 1 .................................................................................................................................. 15
+3.2.2.1    DFD Level 2 <Proses pendaftaran>........................................................................................... 16
+3.2.2.2    DFD Level 2 <Proses lihat dan update katalog> ....................................................................... 16
+3.2.2.2    DFD Level 2 <Proses pemesanan>............................................................................................ 17
+3.2.2.2    DFD Level 2 <Proses pembayaran> .......................................................................................... 17
+3.2.2.2    DFD Level 2 <Proses permintaan produk> ............................................................................... 18
+3.2.2.2    DFD Level 2 <Generate laporan> ............................................................................................. 18
+3.2.3       Spesifikasi Proses .......................................................................................................................... 18
+3.2.4       Data Store ...................................................................................................................................... 19
+3.3      Kebutuhan Data ..................................................................................................................................... 20
+3.3.1       E-R diagram................................................................................................................................... 20
+3.4      Kebutuhan Non Fungsional ................................................................................................................... 20
+3.5      Batasan Perancangan ............................................................................................................................. 21
+3.6      Kerunutan (traceability) ......................................................................................................................... 21
+3.6.1       Data Store vs E-R .......................................................................................................................... 21
+3.7      Ringkasan Kebutuhan ............................................................................................................................ 21
+3.7.1       Kebutuhan Fungsional ................................................................................................................... 22
+3.7.2       Kebutuhan Non Fungsional ........................................................................................................... 23
+
+
+
+Daftar Gambar
+
+Gambar 1. Hubungan sistem dengan dunia luar ...................................................................................................... 9
+Gambar 2. Diagram konteks SI Transaksi SMM................................................................................................... 14
+Gambar 3. Diagram Level 1 SI Transaksi SMM ................................................................................................... 15
+Gambar 4. Diagram Level 2 Proses pendaftaran ................................................................................................... 16
+Gambar 5. Diagram Level 2 Proses lihat dan update katalog ................................................................................ 16
+Gambar 6. Diagram Level 2 Proses Pemesanan .................................................................................................... 17
+Gambar 7. Diagram Level 2 Proses Pembayaran .................................................................................................. 17
+Gambar 8. Diagram Level 2 Proses Permintaan produk ....................................................................................... 18
+Gambar 9. Diagram Level 2 Proses Generate laporan........................................................................................... 18
+Gambar 10. Diagram ER ....................................................................................................................................... 20
+
+Daftar Tabel
+
+Tabel 1 Definisi, istilah dan singkatan .................................................................................................................... 7
+Tabel 2 Aturan penomoran ...................................................................................................................................... 7
+Tabel 3 Karakteristik pengguna............................................................................................................................. 10
+Tabel 4 Kebutuhan fungsional............................................................................................................................... 12
+Tabel 5 Spesifikasi Proses ..................................................................................................................................... 18
+Tabel 6 Data Store ................................................................................................................................................. 19
+Tabel 7 Kebutuhan non fungsional........................................................................................................................ 20
+Tabel 8 Kebutuhan Fungsional vs proses .............................................................................................................. 21
+Tabel 9 Data Store vs E-R ..................................................................................................................................... 22
+
+1. Pendahuluan
+
+1.1   Tujuan Penulisan Dokumen
+     Dokumen ini ditulis dalam rangka menjabarkan spesifikasi kebutuhan perangkat lunak yang akan digunakan oleh Monster’s Corporation. Penjabaran spesifikasi perangkat lunak meliputi deskripsi umum perangkat lunak dan deskripsi kebutuhan perangkat lunak. Perangkat lunak yang akan dibangun untuk Monster’s Corporation bernama Super Monster Mall. Dalam rangka membangun perangkat lunak tersebut, tentunya spesifikasi kebutuhan untuk perangkat lunak tersebut dibutuhkan, khususnya oleh para pengembang dan pembangun perangkat lunak tersebut.
+
+1.2   Lingkup Masalah
+     Super Monster Mall adalah sebuah aplikasi e-commerce berbasis web yang menjual produk-produk  yang  bertemakan  monster.  Sistem  di  dalam  Super  Monster  Mall  disebut dengan M_Monster System. Pengguna perangkat lunak dapat melakukan pendaftaran, sign in, melihat katalog, memilih produk, mengisi jumlah produk yang diinginkan, dan melakukan pembayaran. Sistem ini dikelola oleh seorang admin yang bertugas memperbaharui katalog, data pelanggan, dan data pemesanan. Data-data yang dikelola admin dipertanggungjawabkan kepada Monster’s Corporation di mana seorang manajer dari Monster’s Corporation akan mengunjungi Super Monster Mall dan melakukan observasi serta meminta laporan pertanggungjawaban.
+
+
+1.3   Definisi, Istilah dan Singkatan
+Berikut definisi, istilah serta singkatan yang digunakan dalam dokumen ini :
+
+Tabel 1 Definisi, istilah dan singkatan
+
+  Definisi, Istilah dan/atau Singkatan
+
+PenjelasanDFDData Flow Diagram. Diagram yang menggambarkan aliran data.ERDEntity Relationship Diagram. Diagram yang menggambarkan entitas suatu
+objek beserta relasinya.InterfaceAntarmuka antara perangkat lunak dan penggunaData storeTempat penyimpanan dataAPIApplication Programming Interface
+
+1.4   Aturan Penomoran
+     Dalam dokumen ini, terdapat beberapa aturan penomoran yang dipakai. Untuk daftar penamaan perangkat lunak dijelaskan pada tabel dibawah ini :
+
+Tabel 2 Aturan penomoran
+
+
+Kebutuhan
+non fungsionalSRS-NF-IN/PR/OUT-xxxSRS adalah System Requirement Summary
+NF adalah non-Fungsional
+IN menunjukkan operasi Input
+PR menunjukkan operasi Proses OUT menunjukkan operasi Output xxx adalah nomor SRS-Id.BubbleDFD-X-Y.ZDFD adalah Data Flow Diagram
+X adalah nomor level diagram
+Y.Z adalah nomer pada buble diagram
+
+1.5   Referensi
+Dokumen ini memiliki beberapa referensi dalam pembuatannya, yaitu sebagai berikut:
+*    IEEE. 1998. IEEE Recommended Practice for Software Requirement Specification.
+New York : IEEE
+*    Pressman, Roger S. 2001. Software engineering: a practitioner’s approach 5th ed.
+New York : McGraw-Hill Companies, Inc.
+
+1.6   Deskripsi umum Dokumen (Ikhtisar)
+     Dokumen  Spesifikasi  Kebutuhan  Perangkat  Lunak  (SKPL)  ini  berisikan  beberapa bagian besar, antara lain pendahuluan, deskripsi umum perangkat lunak, dan deskripsi kebutuhan.
+     Bagian  pendahuluan  berisi  tujuan  penulisan  dokumen  yang  menjelaskan  alasan dokumen ini dibuat, lingkup masalah yang berisi ringkasan deskripsi dari aplikasi yang akan dibuat, definisi, istilah dan singkatan yang digunakan dalam dokumen, aturan penomoran yang digunakan dalam dokumen ini, referensi yang dirujuk oleh dokumen dan ikhtisar dokumen ini.
+     Bagian deskripsi umum perangkat lunak berisi deskripsi umum dari sistem yang dibuat, karakteristik pengguna sistem, batasan yang dipakai dalam perangkat lunak itu sendiri, dan lingkungan operasi yang diperuntukan bagi perangkat lunak yang dibuat.
+     Bagian deskripsi kebutuhan di dalam dokumen ini meliputi kebutuhan antarmuka eksternal, kebutuhan fungsional, kebutuhan non fungsional, kebutuhan data, batasan perancangan perangkat lunak, keruntunan, dan ringkasan dari kebutuhan perangkat lunak, baik itu kebutuhan fungsional maupun kebutuhan non fungsional. Kebutuhan antarmuka eksternal  meliputi  antarmuka  pemakai,  antarmuka  perangkat  keras,  antarmuak  perangkat lunak, dan antarmuka komunikasi. Kebutuhan fungsional dan kebutuhan non fungsional perangkat lunak diuraikan dengan lengkap di bagian ini dan ringkasan dari kebutuhan perangkat lunak yang dibuat disertakan dalam dokumen ini. Kebutuhan fungsional perangkat lunak digambarkan dalam bentuk Data Flow Diagram (DFD), di mana DFD yang dibuat meliputi diagram konteks, DFD level 1, dan DFD level 2. Data store dari DFD yang dibuat pun dijelaskan di dalam dokumen ini. Selain DFD, kebutuhan fungsional perangkat lunak digambarkan dalam spesifikasi proses. Kebutuhan data dari perangkat lunak digambarkan dalam  Entity Relationship  Diagram  (E-R  Diagram).  Batasan  perancangan  dari  perangkat lunak  yang  akan  dibuat  tentunya  harus dijelaskan  dalam  dokumen  ini  agar pengembang perangkat lunak lebih mudah dalam melakukan pekerjaannya. Keruntunan dari perangkat lunak yang dibuat digambarkan dengan cara mapping kebutuhan fungsional dengan proses pada DFD dan mapping data store DFD dengan Entity-Relationship Diagram.
+     
+2   Deskripsi Umum Perangkat Lunak
+
+2.1   Deskripsi Umum Sistem
+
+      Super Monster Mall merupakan aplikasi e-commerce berbasis web yang menjual produk-produk yang bertemakan monster. Pengguna aplikasi dapat melakukan pendaftaran sebagai  pembeli  dan  pengguna  yang  telah  terdaftar  dapat  melakukan  sign  in  ke  dalam aplikasi.  Pengguna  yang  telah  melakukan  sign  in  dapat  melihat  katalog  yang  berisikan produk-produk  yang  dijual  oleh  Monster’s  Corporation.  Pada  katalog  sendiri  terdapat informasi tentang nama produk, kategori produkm harga produk, dan jumlah produk yang tersedia.  Pada  aplikasi  tersedia  form  pembelian  produk  di  mana  pembeli  dapat  memilih produk yang ingin dibeli beserta jumlahnya. Pengguna melakukan pembayaran dengan menggunakan sistem e-banking di mana aplikasi menyediakan form pembayaran yang terhubung dengan bank. Apabila uang pembayaran sudah masuk ke bank, maka bank akan mengirimkan konfirmasi pembayaran ke aplikasi dan  aplikasi akan mengirimkan konfirmasi pembayaran  kepada  pembeli  melalui  e-mail  pembeli.  Notifikasi  permintaan  pengiriman barang akan dikirimkan kepada jasa kurir apabila aplikasi sudah menerima konfirmasi pembayaran dari bank. Apabila jumlah produk yang tersedia telah habis, maka aplikasi akan mengirimkan notifikasi permintaan produk kepada pemasok.
+
+     Sistem ini dikelola oleh seorang adminyang bertugas memperbaharui katalog, data pelanggan, dan data pemesanan. Data-data ini dipertanggungjawabkan kepada Monster’s Corporation kepada manajer dari Monster’s Corporation dalam bentuk laporan pertanggungjawaban. Laporan ini akan dicetak apabila manajer meminta laporan tersebut melalui admin. Admin akan melakukan permintaan generate laporan kepada aplikasi.
+
+
+Gambar 1. Hubungan sistem dengan dunia luar
+
+2.2   Karakteristik Pengguna
+
+Tabel 3 Karakteristik pengguna
+KategoriPenggunaTugasHak Akses ke aplikasiGuestMelihat tampilan webMelakukan pendaftaranPembeliMemilih produk yang ingin dibeliSign in sebagai pembeliAdminMemperbaharui katalog, data
+pelanggan, dan data pemesananSign ini sebagai admin, control
+panel server, basis data produkBankMengirimkan notifikasi
+pembayaranTidak ada
+
+2.3   Batasan
+Dalam pembuatan perangkat lunak ini, ada beberapa batasan yang digunakan. Batasan- batasan tersebut antara lain :
+1.   Pembelian produk hanya dapat dilakukan apabila pengguna sudah melakukan sign in.
+2.   Aplikasi hanya menyediakan form pembayaran terhadap produk yang dipesan.
+Pembayaran produk dilakukan ke bank.
+3.   Aplikasi harus berfungsi pada platform Windows dan Linux
+
+2.4   Lingkungan Operasi
+Aplikasi Client server ini akan berfungsi dengan spesifikasi : Server :
+Komputer dengan spesifikasi hardware minimal sebagai berikut :
+*    Processor Intel Pentium 4 3 Ghz
+*    Motherboard support internet connection
+*    2 GB RAM
+*    500 GB Hard Disk Drive utama
+*    500 GB Hard Disk Drive backup
+*    VGA Card 256 MB
+*    NIC FastEthernet atau Gigabit Ethernet
+*    Mouse
+*    Keyboard
+*    Monitor
+*    Power Supply
+
+Komputer yang minimal telah terinstall software sebagai berikut :
+*    Browser Google Chrome/Mozilla Firefox
+*    PDF reader
+*    Word Processor
+*    Apache HTTP Server
+*    Mail Server
+DBMS (Database Management System) minimal MySQL 5.0.20 ke atas
+Koneksi internet dengan bandwidth minimal 1 Mbps
+OS minimal Windows 2003 Server  atau Ubuntu Server
+
+Client :
+Komputer dengan spesifikasi hardware minimal sebagai berikut :
+*    Processor Intel Pentium 4 2 Ghz
+*    Motherboard support internet connection
+
+*    1 GB RAM
+*    80 GB Hard Disk Drive
+*    VGA Card 64 MB
+*    Mouse
+*    Keyboard
+*    Monitor
+*    Power Supply
+
+Komputer yang minimal telah terinstall software sebagai berikut :
+*    Browser Google Chrome/Mozilla Firefox
+*    PDF reader
+Koneksi internet dengan bandwidth minimal 128 Kbps
+OS minimal Windows XP ke atas atau Ubuntu 7.04 ke atas
+
+3   Deskripsi Kebutuhan
+
+3.1   Kebutuhan Antarmuka Eksternal
+     Perangkat Lunak Super Monster Mall membutuhkan fasilitas-fasilitas antar muka eksternal sebagai berikut :
+
+3.1.1  Antarmuka pemakai
+User interface yang digunakan untuk mengoperasikan Perangkat Lunak Super Monster
+Mall antara lain :
+*    Tampilan awal web
+*    Tampilan form pembelian
+*    Tampilan sign in
+*    Tampilan pendaftaran
+*    Tampilan katalog produk
+*    Tampilan e-banking
+Alat-alat yang mendukung antarmuka pemakai adalah sebagai berikut.
+*    Keyboard
+*    Mouse
+*    Monitor
+
+3.1.2  Antarmuka Perangkat Keras
+      Antarmuka perangkat keras yang digunakan untuk mengoperasikan perangkat lunak antara lain :
+*    NIC FastEthernet atau Gigabit Ethernet
+*    Kabel LAN UTP RJ-45
+*    ASDL Modem
+*    Kabel telepon (aerial type)
+
+3.1.3  Antarmuka Perangkat Lunak
+      Antarmuka perangkat lunak yang digunakan oleh perangkat lunak ini adalah sebagai berikut :
+*    API E-Banking
+*    API Logistik
+*    API Jasa Kurir
+
+3.1.4  Antarmuka Komunikasi
+Antarmuka komunikasi yang digunakan untukmengoperasikanperangkat lunak antara
+lain :
+*     Kabel LAN UTP RJ-45
+*     ASDL Modem
+*     Kabel telepon (aerial type)
+
+3.2   Kebutuhan Fungsional
+
+Tabel 4 Kebutuhan fungsional
+IDKebutuhanPenjelasanSRS-F-
+OUT-001Perangkat lunak dapat menampilkan form sign inPengguna yang telah terdaftar dapat
+melakukan sign in sehingga perangkat lunak perlu menampilkan form sign inSRS-F-
+OUT-002Perangkat lunak dapat menampilkan form entri
+pendaftaranForm entri pendaftaran ditampilkan saat
+pengguna melakukan pendaftaran sebagai pembeliSRS-F-IN-
+003Perangkat lunak dapat menerima masukan dari
+pengguna, berupa data pembeliData pembeli yang dimasukkan oleh
+pengguna dapat diterima oleh perangkat lunakSRS-F-PR-
+004Perangkat lunak dapat menyimpan data pembeliSetelah pengguna yang melakukan
+pendaftaran sebagai pembeli memasukkan data yang dibutuhkan, perangkat lunak menyimpan data tersebutSRS-F-
+OUT-005Perangkat lunak dapat menampilkan pesan berupa
+harga total yang harus dibayarkanSetelah perangkat lunak menghitung
+harga total yang harus dibayar pembeli, perangkat lunak menampilkan informasi tersebutSRS-F-PR-
+006Perangkat lunak dapat menyediakan mode pencarian
+terhadap produk, sesuaidengan input dari pembeliUntuk memilih produk, pengguna dapat
+menggunakan mode pencarian yang terdapat pada perangkat lunakSRS-F-IN-
+007Perangkat lunak dapat menerima masukan username
+dan password pembeliUsername dan password yang
+dimasukkan pembeli harus dapat diterima oleh perangkat lunakSRS-F-
+OUT-008Perangkat lunak dapat menampilkan katalogKatalog memiliki informasi nama
+produk, kategori produk, harga produk, dan jumlah produk yang tersediaSRS-F-PR-
+009Perangkat lunak dapat menghitung jumlah uang yang
+harus dibayarkan oleh pembeliSetelah pembeli memilih produk beserta
+jumlahnya, perangkat lunak melakukan pengitungan jumlah uang yang harus dibayarkan oleh pembeliSRS-F-PR-
+010Perangkat lunak dapat menyimpan data pemesananData pemesanan yang terjadi dapat
+disimpan oleh perangkat lunakSRS-F-PR-
+011Perangkat lunak dapat menyimpan data katalogData katalog yang diperbaharui oleh
+admin dapat disimpan oleh perangkat lunakSRS-F-
+OUT-012Perangkat lunak dapat menampilkan form
+pembayaranPengguna dapat memilih metode
+pembayaran untuk melakukan pembayaran produkSRS-F-IN-
+013Perangkat lunak dapat menerima masukan berupa
+produk yang dipesan pembeli beserta jumlahnyaPembeli yang melakukan pemesanan
+akan memasukkan data produk yang ingin dipesan beserta jumlahnya, sehingga data tersebut dapat diterima oleh perangkat lunakSRS-F-
+OUT-014Perangkat lunak dapat mengirimkan notifikasi
+pembayaran kepada pembeliSetelah uang pembayaran diterima,
+konfirmasi pembayaran akan dikirim melalui e-mail oleh perangkat lunak
+
+IDKebutuhanPenjelasanSRS-F-
+OUT-015Perangkat lunak dapat mengirimkan notifikasi
+permintaan produk kepada pemasokSaat monster corporation tidak memliki
+stok barang, maka perangkat lunak akan mengirimkan notifikasi permintaan produk kepada pemasokSRS-F-
+OUT-016Perangkat lunak dapat mengirimkan notifikasi
+pengiriman barang kepada jasa kurirSetelah uang pembayaran diterima,
+permintaan pengiriman barang kepada pembeli akan dikirimkan kepada jasa kurirSRS-F-IN-
+017Perangkat lunak dapat memperbaharui katalogAdmin dapat melakukan pembaharuan
+data katalog melalui perangkat lunak yang dibuatSRS-F-
+OUT-018Perangkat lunak dapat menampilkan form pembelian
+produkPembeli yang melakukan pemesanan
+barang dilayani oleh perangkat lunak dengan form pembelian produkSRS-F-
+OUT-019Perangkat lunak dapat menampilkan form entri
+katalogApabila ada permintaan pembaharuan
+data katalog, perangkat lunak menampilkan form entri katalogSRS-F-
+OUT-020Perangkat lunak dapat menampilkan informasi
+pemesanan dalam kurun waktu tertentu (harian, mingguan, dan/atau bulanan) dalam bentuk tabelPerangkat lunak mengolah informasi
+pemesanan dan menampilkan hasil pengolahan dalam bentuk tabelSRS-F-
+OUT-021Perangkat lunak dapat menampilkan informasi
+pemesanan dalam kurun waktu tertentu (harian, mingguan, dan/atau bulanan) dalam bentuk grafikPerangkat lunak mengolah informasi
+pemesanan dan menampilkan hasil pengolahan dalam bentuk grafikSRS-F-PR-
+022Perangkat lunak dapat meng-generate laporan
+pertanggungjawabanApabila ada permintaan laporan
+pertanggungjawaban, perangkat lunak akan meng-generate laporan pertanggungjawaban
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.2.1  Diagram Konteks
+
+
+Gambar 2. Diagram konteks SI Transaksi SMM
+
+
+
+
+
+
+
+
+
+	
+	3.2.2  DFD Level 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gambar 3. Diagram Level 1 SI Transaksi SMM
+
+3.2.2.1 DFD Level 2 <Proses pendaftaran>
+
+
+
+Gambar 4. Diagram Level 2 Proses pendaftaran
+
+
+
+3.2.2.2 DFD Level 2 <Proses lihat dan update katalog >
+
+
+
+
+
+Gambar 5. Diagram Level 2 Proses lihat dan update katalog
+
+3.2.2.3 DFD Level 2 <Proses Pemesanan>
+
+Gambar 6. Diagram Level 2 Proses Pemesanan
+
+
+
+3.2.2.4 DFD Level 2 <Proses Pembayaran>
+
+
+
+Gambar 7. Diagram Level 2 Proses Pembayaran
+
+3.2.2.5 DFD Level 2 <Permintaan produk>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gambar 8. Diagram Level 2 Proses Permintaan produk
+
+
+3.2.2.6 DFD Level 2 <Generate laporan>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gambar 9. Diagram Level 2 Proses Generate laporan
+
+
+3.2.3  Spesifikasi Proses (P-SPEC)
+Tabel 5 Spesifikasi Proses
+
+
+produk,  sehingga  terjadilah  proses  permintaan  produk.  Output  dari  proses  ini  adalah  data
+permintaan produk.DFD-1-7Proses ini menerima input pilihan laporan yang dikirim oleh admin, kemudian melakukan proses
+generate laporan sehingga admin bisa mendapatkan laporan untuk dilaporkan kepada manajer.DFD-2-2.1Proses ini dibuat agar bsia memenuhi spesifikasi user requirment yang kami buat.  Apabila
+pengguna memilih menu daftar, maka sistem akan meminta masukan kepada pembeli berupa data apa saja yang dibutuhkan. Oleh karena itu output dari proses ini berupa data form yang akan diisi oleh pembeliDFD-2-2.2Data form yang telah ditampilkan harus diisi oleh pengguna. Apabila telah tervalidasi, maka
+status pengguna akan naik menjadi pembeli. Disini data pembeli akan disimpan pada suata data storeDFD-2-2.3Apabila user telah terdaftar, maka user cukup melakukan login sebagai pembeli. Proses ini
+merupakan proses pengecekan terhadap seorang user.DFD-2-3.1Pembeli dapat melihat data katalog yang tersediaDFD-2-3.2Admin dapat melakukan update pada katalogDFD-2-4.1Apabila  pembeli  memilih  menu  Pil_Beli,  maka  pembeli  dapat  memilih  barang  yang  ingin
+dipesan. Keluaran dari proses ini berupa data pesanan (Id barang, nama barang, jumlah serta total harga yang harus dibayarkan)DFD-2-4.2Proses pencarian produk dapat dipilih oleh pembeli. Software akan menampilkan data produk
+sesuai kriteria yang diinginkan pembeli.DFD-2-5.1Proses ini transefer uang dilakukan di luar sistem. Transfer uang dalam proses ini diartikan
+sebagai input jumlah uang yang sesuai dengan data pemesanan.DFD-2-5.2Proses ini menerima input data proses 5.1. Pada bagian ini akan dilakukan pengisian form
+pembayaran  oleh  user  yang  datanya  akan  dipakai  oleh  pihak  bank.  Proses  ini  juga  akan mengirimkan status kelunasan pembayaran.DFD-2-5.3Proses akan menerima konfirmasi_pembayaran dari Bank, apabila telah terbukti lunas, maka
+proses akan mengirimkan permintaan pengiriman barang pada kurir. Setelah melakukan pengiriman, kurir wajib melakukan akses ke sistem dan mengirimkan bahwa barang telah sampai pada pembeli.DFD-2-6.1Ketika admin memilih pil_reqproduk, maka pada proses ini akan ditampilkan produk yang
+kosong.DFD-2-6.2Apabila kondisi memungkinkan, admin mempunyai hak untuk melakukan pemesanan produk.
+Proses ini menerima input Data_Produk kosong yang dihasilkan pada proses 6.1, kemudian memberikan output data_permintaan produkDFD-2-7.1Untuk mengirimkan laporan ke manajer, admin memiliki hak akses untuk mencetak laporan.
+Data ini diperoleh dari data store yang terkait dengan pemesanan.DFD-2-7.2Admin dapat melakukan Pil_infoPemesanan untuk mendapatkan grafik dan data pemesanan
+produk yang berupa tabel.
+
+3.2.4  Data Store
+
+Tabel 6 Data Store
+
+3.3   Kebutuhan Data
+
+3.3.1  E-R diagram
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gambar 10. Diagram ER
+
+
+
+3.4   Kebutuhan Non Fungsional
+Kebutuhan non fungsional yang terdapat pada Sistem Layanan Kematian.
+
+Tabel  Kebutuhan non fungsional
+
+
+
+
+3.5   Batasan Perancangan
+Batasan perancangan yang dipakai dalam pengembangan Sistem Informasi Layanan Kematian.
+*    Tampilan web dibuat dengan menggunakan photoshop dan corel draw
+*    Text editor yang digunakan adalah sublime text atau notepad++
+*    Bahasa pemrograman yang digunakan adalah Java
+
+3.6   Kerunutan (traceability)
+     Suatu Sistem Informasi Layanan Kematian yang baik memiliki kebutuhan fungsional yang dapat dirunut model  analisisnya.  Berikut  ini  adalah  tabel  yang  berisi  traceability  dari  hasil  analisis kebutuhan perangkat lunak yang dibangun.
+
+
+3.6.1  Kebutuhan Fungsional vs Proses
+Mapping kebutuhan fungsional dengan proses Sistem Informasi Layanan Kematian
+
+Tabel  Kebutuhan Fungsional vs proses
+
+3.6.2  Data Store vs E-R
+Mapping data store pada Sistem Informasi Layanan Kematian adalah sebagai berikut :
+
+Tabel  Data Store vs E-R
+Data StoreEntityRelasiData pelangganPelanggan-Data pemesananPelanggan, Pemesanan,Baris
+pemesanan, Produk, Kategoripemesannya, terdiri_dari,
+produknya, dalam_kategoriProdukProduk, Kategoriproduknya, dalam_kategoriData katalogProduk, Kategoriproduknya, dalam_kategori
+3.7   Ringkasan Kebutuhan
+	Sistem informasi layanan kematian yang dibuat dengan memiliki dua jenis kebutuhan , yaitu kebutuhan fungsional dan kebutuhan non funsional. Kebutuhan tersebut menandakan semua hal yang harus terpenuhi, dan nantinya akan menjadi arahan untuk tahapan testing atau pengujian, karena pada dasarnya semua kebutuhan harus dapat dicoba atau ditest terlebih dahulu. Berikut ini ringkasan semua kebutuhan Sistem Informasi Layanan Kematian.
+
+3.7.1  Kebutuhan Fungsional
+
+Tabel Kebutuhan Fungsional
+
+3.7.2  Kebutuhan Non Fungsional
+Tabel  Kebutuhan Non Fungsional
+
+
+
+
+
+
+
+
