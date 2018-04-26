@@ -3,7 +3,7 @@
 
 				untuk:
 
-			Monster’s Corporation
+			Monsterâ€™s Corporation
 
 
 
@@ -23,6 +23,7 @@
 
 1. Pendahuluan
 1.1 Tujuan Penulisan Dokumen
+    Dokumen ini ditulis dalam rangka menjabarkan spesifikasi kebutuhan perangkat lunak yang akan digunakan oleh ......... Penjabaran spesifikasi perangkat lunak meliputi deskripsi umum perangkat lunak dan deskripsi kebutuhan perangkat lunak. Perangkat lunak yang akan dibangun untuk ........... bernama Sistem Layanan Kematian. Dalam rangka membangun perangkat lunak tersebut, tentunya spesifikasi kebutuhan untuk perangkat lunak tersebut dibutuhkan, khususnya oleh para pengembang dan pembangun perangkat lunak tersebut.
 1.2 Lingkup Masalah
 1.3 Definisi, Istilah dan Singkatan
 1.4 Aturan Penomoran
@@ -79,8 +80,8 @@
 	- Operational
 	- Performance -> Waktu yang dibutuhkan untuk memesan lahan pemakaman 			 cepat kurang lebih 2 menit (tergantung koneksi).
 	- Security 
-	   • Sistem pengaman ketika user melakukan perpanjangan lahan 	     pemakaman.
-	   • Membutuhkan sistem untuk mengamankan proses transaksi.
+	   â€¢ Sistem pengaman ketika user melakukan perpanjangan lahan 	     pemakaman.
+	   â€¢ Membutuhkan sistem untuk mengamankan proses transaksi.
 
 
 3.5 Batasan Perancangan
