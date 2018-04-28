@@ -77,13 +77,21 @@
 
 
 3.4 Kebutuhan Non Fungsional
+	Kebutuhan non fungsional yang terdapat pada Sistem Layanan Kematian.
 	- Operational
 	- Performance -> Waktu yang dibutuhkan untuk memesan lahan pemakaman 			 cepat kurang lebih 2 menit (tergantung koneksi).
 	- Security 
 	   • Sistem pengaman ketika user melakukan perpanjangan lahan 	     pemakaman.
 	   • Membutuhkan sistem untuk mengamankan proses transaksi.
-
-
+	   
 3.5 Batasan Perancangan
+	Batasan perancangan yang dipakai dalam pengembangan Sistem Informasi Layanan Kematian.
+	- Tampilan web dibuat dengan menggunakan photoshop dan corel draw.
+	- Text editor yang digunakan adalah sublime text atau notepad++.
+	- Bahasa pemrograman java yang digunakan.
+	
 3.6 Kerunutan (Traceability)
+	Suatu Sistem Informasi Layanan Kematian yang baik memiliki kebutuhan fungsional yang dapat dirunut model analisis. Berikut ini adalah tabel ang berisi traceability dari hasil analisis kebutuhan perangkat lunak yang dibangun.
+3.6.1 Kebutuhan Fungsional vs Proses
+	Mapping kebutuhan fungsional dengan proses Sistem Informasi Layanan Kematian.
 3.7 Ringkasan Kebutuhan
