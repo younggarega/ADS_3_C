@@ -35,7 +35,17 @@
 2. Deskripsi Umum Perangkat Lunak
 2.1 Deskripsi Umum Sistem
 2.2 Karakteristik Pengguna
+    Kategori pengguna 	= Tugas	= Hak akses ke aplikasi
+    Guest = Melihat tampilan web = Melakukan pendaftaran
+    Pengguna = Melihat paket dan agama = Sign in sebagai user
+    Admin = Memperbarui katalog dan data pemesanan = Sign in sebagai admin
+    
 2.3 Batasan
+    Dalam pembuatan perangkat lunak ini, ada beberapa batasan yang digunakan. Batasan - batasan tersebut antara lain :
+    - Pemesanan hanya dapat dilakukan apabila pengguna sudah melakukan sign in.
+    - Aplikasi dapat diakses apabila terdapat koneksi internet.
+    - Aplikasi harus berfungsi pada platform Windows dan Linux.
+    
 2.4 Lingkungan Operasi
 Alikasi Client Server ini akan berfungsi dengan spesifikasi:
 Komputer dengan spesifikasi hardware minimal sebagai berikut:
