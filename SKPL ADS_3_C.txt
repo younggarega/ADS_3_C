@@ -26,14 +26,37 @@
     Dokumen ini ditulis dalam rangka menjabarkan spesifikasi kebutuhan perangkat lunak yang akan digunakan untuk pelayanan kematian. Penjabaran spesifikasi perangkat lunak meliputi deskripsi umum perangkat lunak dan deskripsi kebutuhan perangkat lunak. Perangkat lunak yang akan dibangun bernama Sistem Layanan Kematian. Dalam rangka membangun perangkat lunak tersebut, tentunya spesifikasi kebutuhan untuk perangkat lunak tersebut dibutuhkan, khususnya oleh para pengembang dan pembangun perangkat lunak tersebut.
 1.2 Lingkup Masalah
     Sistem informasi layanan kematian merupakan sebuah aplikasi yang berbasis web yang menyediakan berbagai macam peralatan pemakaman. Pada pengguna perangkat lunak dapat melakukan pendaftaran, sign in, melihat fitur-fitur yang sudah disediakan. setelah melakukan pendaftaran maka pengguna harus memilih kriteria yang akan dipesan dari agama kebutuhan pemakaman yang diinginkan atau memilih paket yang sudah disediakan oleh admin.
+    Sistem Layanan Kematian adalah sebuah aplikasi e-commerce berbasis web yang melayani mengenai fasilitas kematian dari penjemputan jenazah, pengurusan jenazah, hingga pemakaman jenazah sesuai dengan agama atau kepercayaan pengguna. Pengguna perangkat lunak dapat melakukan pendaftaran, sign in, melihat paket, memilih kepercayaan (agama), user dapat memboking lahan pemakaman, mengetahui lebih spesifik lokasi pemakaman, mengetahiu masa sewa dan perpanjangan sewa lahan kematian. Sistem ini dikelola oleh seorang admin yang bertugas memperbaharui katalog, data pelanggan, dan data pemesanan. 
+    
 1.3 Definisi, Istilah dan Singkatan
+    Berikut definisi, istilah serta singkatan yang digunakan dalam dokumen ini :
+    Definisi, Istilah dan/atau Singkatan	Penjelasan
+    - DFD = Data Flow Diagram. Diagram yang menggambarkan aliran data.
+    - ERD = Entity Relationship Diagram. Diagram yang menggambarkan entitas suatu objek beserta relasinya.
+    - Interface = Antarmuka antara perangkat lunak dan pengguna
+    - Data store = Tempat penyimpanan data
+    - API = Application Programming Interface
+    
 1.4 Aturan Penomoran
+    Dalam dokumen ini, terdapat beberapa aturan penomoran yang dipakai. Untuk daftar penamaan perangkat lunak dijelaskan pada tabel dibawah ini :
+    Nama-ID	=	Aturan penamaan		=	Deskripsi
+    - Kebutuhan fungsional = SRS-F-IN/PR/OUT-xxx = SRS adalah System Requirement Summary, F adalah Fungsional IN menunjukkan operasi Input PR menunjukkan operasi Proses OUT menunjukkan output xxx adalah nomor SRS-Id.
+    - Kebutuhan fungsional = SRS-F-IN/PR/OUT-xxx = SRS adalah System Requirement Summary, FN adalah Non Fungsional IN menunjukkan operasi Input PR menunjukkan operasi Proses OUT menunjukkan output xxx adalah nomor SRS-Id.
+    - Bubble = DFD-X-Y.Z = DFD adalah Data Flow Diagram X adalah nomor level diagram Y.Z adalah nomer pada buble diagram
+
 1.5 Referensi
 1.6 Deskripsi Umum Dokumen (Ikhtisar)
-
+    Dokumen  Spesifikasi  Kebutuhan  Perangkat  Lunak  (SKPL)  ini  berisikan  beberapa bagian besar, antara lain pendahuluan, deskripsi umum perangkat lunak, dan deskripsi kebutuhan.
+Bagian  pendahuluan  berisi  tujuan  penulisan  dokumen  yang  menjelaskan  alasan dokumen ini dibuat, lingkup masalah yang berisi ringkasan deskripsi dari aplikasi yang akan dibuat, definisi, istilah dan singkatan yang digunakan dalam dokumen, aturan penomoran yang digunakan dalam dokumen ini, referensi yang dirujuk oleh dokumen dan ikhtisar dokumen ini.
+Bagian deskripsi umum perangkat lunak berisi deskripsi umum dari sistem yang dibuat, karakteristik pengguna sistem, batasan yang dipakai dalam perangkat lunak itu sendiri, dan lingkungan operasi yang diperuntukan bagi perangkat lunak yang dibuat.
+Bagian deskripsi kebutuhan di dalam dokumen ini meliputi kebutuhan antarmuka eksternal, kebutuhan fungsional, kebutuhan non fungsional, kebutuhan data, batasan perancangan perangkat lunak, keruntunan, dan ringkasan dari kebutuhan perangkat lunak, baik itu kebutuhan fungsional maupun kebutuhan non fungsional. Kebutuhan antarmuka eksternal  meliputi  antarmuka  pemakai,  antarmuka  perangkat  keras,  antarmuak  perangkat lunak, dan antarmuka komunikasi. Kebutuhan fungsional dan kebutuhan non fungsional perangkat lunak diuraikan dengan lengkap di bagian ini dan ringkasan dari kebutuhan perangkat lunak yang dibuat disertakan dalam dokumen ini. Kebutuhan fungsional perangkat lunak digambarkan dalam bentuk Data Flow Diagram (DFD), di mana DFD yang dibuat meliputi diagram konteks, DFD level 1, dan DFD level 2. Data store dari DFD yang dibuat pun dijelaskan di dalam dokumen ini. Selain DFD, kebutuhan fungsional perangkat lunak digambarkan dalam spesifikasi proses. Kebutuhan data dari perangkat lunak digambarkan dalam  Entity Relationship  Diagram  (E-R  Diagram).  Batasan  perancangan  dari  perangkat lunak  yang  akan  dibuat  tentunya  harus dijelaskan  dalam  dokumen  ini  agar pengembang perangkat lunak lebih mudah dalam melakukan pekerjaannya. Keruntunan dari perangkat lunak yang dibuat digambarkan dengan cara mapping kebutuhan fungsional dengan proses pada DFD dan mapping data store DFD dengan Entity-Relationship Diagram.
 
 2. Deskripsi Umum Perangkat Lunak
 2.1 Deskripsi Umum Sistem
+    Sistem Layanan Kematian merupakan aplikasi e-commerce berbasis web yang melayani proses pengurusan jenazah guna untuk mempermudah proses pengurusan jenazah hingga pemakaman jenazah. Pengguna aplikasi dapat melakukan pendaftaran sebagai  pelanggan  dan  pengguna  yang  telah  terdaftar  dapat  melakukan  sign  in  ke  dalam aplikasi.  Pengguna  yang  telah  melakukan  sign  in  dapat  melihat  katalog  yang  berisikan paket-paket pelayanan dan pemesanan lahan.  Pada  katalog  sendiri  terdapat informasi tentang paket yang disediakan dan lokasi pemakaman terdekat dari user atau pengguna.  Pada  aplikasi  tersedia  form  pemilihan agama atau kepercayaan. Pengguna melakukan pembayaran dengan menggunakan sistem e-banking dan juga bisa cash, untuk e-banking di mana aplikasi menyediakan nomor rekening untuk transaksinya . Banyaknya transaksi ini tergantung pada paket yang diambil oleh pengguna.Setelah melakukan pemesanan user akan mendapatkan seperti rincian pemesanan (dapat di lihat pada riwayat pemesanan)
+
+Sistem ini dikelola oleh seorang adminyang bertugas memperbaharui katalog, data pelanggan, dan data pemesanan. Data-data ini dipertanggungjawabkan kepada Sistem Infrmasi Layanan Kematian kepada manajer dari Sistem Infrmasi Layanan Kematian dalam bentuk laporan pertanggungjawaban. Laporan ini akan dicetak apabila manajer meminta laporan tersebut melalui admin. Admin akan melakukan permintaan generate laporan kepada aplikasi.
+
 2.2 Karakteristik Pengguna
     Kategori pengguna 	= Tugas	= Hak akses ke aplikasi
     Guest = Melihat tampilan web = Melakukan pendaftaran
@@ -47,19 +70,44 @@
     - Aplikasi harus berfungsi pada platform Windows dan Linux.
     
 2.4 Lingkungan Operasi
-Alikasi Client Server ini akan berfungsi dengan spesifikasi:
-Komputer dengan spesifikasi hardware minimal sebagai berikut:
-- 
-- 
-- 
-- 
--
-Komputer yang minimal telah terinstall software sebagai berikut:
-- 
--
--
--
--
+    Alikasi Client Server ini akan berfungsi dengan spesifikasi:
+    Server :
+    Komputer dengan spesifikasi hardware minimal sebagai berikut:
+    - Processor Intel Pentium 4 3 Ghz
+    - Motherboard support internet connection
+    - 2 GB RAM
+    - 500 GB Hard Disk Drive utama
+    - 500 GB Hard Disk Drive backup
+    - VGA Card 256 MB
+    - NIC FastEthernet atau Gigabit Ethernet
+    - Mouse
+    - Keyboard
+    - Monitor
+    - Power Supply
+
+    Komputer yang minimal telah terinstall software sebagai berikut:
+    - Browser Google Chrome/Mozilla Firefox
+    - PDF reader
+    Koneksi internet dengan bandwidth minimal 1 Mbps
+    OS minimal Windows 2003 Server  atau Ubuntu Server
+    
+    Client :
+    Komputer dengan spesifikasi hardware minimal sebagai berikut :
+    - Processor Intel Pentium 4 2 Ghz
+    - Motherboard support internet connection
+    - 1 GB RAM
+    - 80 GB Hard Disk Drive
+    - VGA Card 64 MB
+    - Mouse
+    - Keyboard
+    - Monitor
+    - Power Supply
+    
+    Komputer yang minimal telah terinstall software sebagai berikut :
+    - Browser Google Chrome/Mozilla Firefox
+    - PDF reader
+    Koneksi internet dengan bandwidth minimal 128 Kbps
+    OS minimal Windows XP ke atas atau Ubuntu 7.04 ke atas
 
 3. Deskripsi Kebutuhan
 3.1 Kebutuhan Antarmuka Eksternal
