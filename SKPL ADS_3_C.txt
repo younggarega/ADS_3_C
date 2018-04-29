@@ -25,6 +25,7 @@
 1.1 Tujuan Penulisan Dokumen
     Dokumen ini ditulis dalam rangka menjabarkan spesifikasi kebutuhan perangkat lunak yang akan digunakan untuk pelayanan kematian. Penjabaran spesifikasi perangkat lunak meliputi deskripsi umum perangkat lunak dan deskripsi kebutuhan perangkat lunak. Perangkat lunak yang akan dibangun bernama Sistem Layanan Kematian. Dalam rangka membangun perangkat lunak tersebut, tentunya spesifikasi kebutuhan untuk perangkat lunak tersebut dibutuhkan, khususnya oleh para pengembang dan pembangun perangkat lunak tersebut.
 1.2 Lingkup Masalah
+    Sistem informasi layanan kematian merupakan sebuah aplikasi yang berbasis web yang menyediakan berbagai macam peralatan pemakaman. Pada pengguna perangkat lunak dapat melakukan pendaftaran, sign in, melihat fitur-fitur yang sudah disediakan. setelah melakukan pendaftaran maka pengguna harus memilih kriteria yang akan dipesan dari agama kebutuhan pemakaman yang diinginkan atau memilih paket yang sudah disediakan oleh admin.
 1.3 Definisi, Istilah dan Singkatan
 1.4 Aturan Penomoran
 1.5 Referensi
@@ -36,7 +37,19 @@
 2.2 Karakteristik Pengguna
 2.3 Batasan
 2.4 Lingkungan Operasi
-
+Alikasi Client Server ini akan berfungsi dengan spesifikasi:
+Komputer dengan spesifikasi hardware minimal sebagai berikut:
+- 
+- 
+- 
+- 
+-
+Komputer yang minimal telah terinstall software sebagai berikut:
+- 
+-
+-
+-
+-
 
 3. Deskripsi Kebutuhan
 3.1 Kebutuhan Antarmuka Eksternal
@@ -50,7 +63,7 @@
 		- Tampilan Riwayat Pemesanan
 
 	  3.1.2 Antarmuka Perangkat Keras
-		Antarmuka perangkat keras yang digunakan oleh Sistem Informasi 		Layanan Kematian ini antara lain:
+		Antarmuka perangkat keras yang digunakan oleh Sistem Informasi Layanan Kematian ini antara lain:
 		- Laptop/PC
 		- Smartphone berbasis Android (Versi KitKat ke atas)
 		- ASDL Modem
@@ -61,11 +74,10 @@
 		- API E-Bangking
 
 	  3.1.4 Antarmuka Komunikasi
-		Antarmuka komunikasi yang digunakan untuk mengoperasikan 		perangkat lunak antara lain:
-		- 
-		- 
-		- 
-		- 
+		Antarmuka komunikasi yang digunakan untuk mengoperasikan perangkat lunak antara lain:
+		- Kabel lan UTP RJ-45
+		- Modem 
+		- Internet atau Wifi
 
 3.2 Kebutuhan Fungsional
 	- User dapat membooking lahan pemakaman.
@@ -79,9 +91,9 @@
 3.4 Kebutuhan Non Fungsional
 	Kebutuhan non fungsional yang terdapat pada Sistem Layanan Kematian.
 	- Operational
-	- Performance -> Waktu yang dibutuhkan untuk memesan lahan pemakaman 			 cepat kurang lebih 2 menit (tergantung koneksi).
+	- Performance -> Waktu yang dibutuhkan untuk memesan lahan pemakaman cepat kurang lebih 2 menit (tergantung koneksi).
 	- Security 
-	   • Sistem pengaman ketika user melakukan perpanjangan lahan 	     pemakaman.
+	   • Sistem pengaman ketika user melakukan perpanjangan lahan pemakaman.
 	   • Membutuhkan sistem untuk mengamankan proses transaksi.
 	   
 3.5 Batasan Perancangan
@@ -95,3 +107,4 @@
 3.6.1 Kebutuhan Fungsional vs Proses
 	Mapping kebutuhan fungsional dengan proses Sistem Informasi Layanan Kematian.
 3.7 Ringkasan Kebutuhan
+    Pada perangkat lunak yang memiliki dua jenis kebutuhan, yaitu kebutuhan fungsional dan kebutuhan non fungsional. pada kebutuhan tersebut mencerminkan semua hal yang harus terpenuhi dan yang nantinya akan menjadi arahan untuk tahapan testing, karena pada dasarnya semua kebutuhan harus dapat dicoba.
