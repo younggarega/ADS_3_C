@@ -1,4 +1,4 @@
-		SPESIFIKASI KEBUTUHAN PERANGKAT LUNAK
+﻿		SPESIFIKASI KEBUTUHAN PERANGKAT LUNAK
 		  SISTEM INFORMASI LAYANAN KEMATIAN 
 
 				untuk:
@@ -111,7 +111,7 @@ Sistem ini dikelola oleh seorang adminyang bertugas memperbaharui katalog, data 
 
 3. Deskripsi Kebutuhan
 3.1 Kebutuhan Antarmuka Eksternal
-	- Sistem Informasi Layanan Kematian membutuhkan fasilitas-fasilitas 	  antar muka eksternal sebagai berikut :
+	- Sistem Informasi Layanan Kematian membutuhkan fasilitas-fasilitas  antar muka eksternal sebagai berikut :
 	  3.1.1 Antarmuka Pemakai
 		- Tampilan Home
 		- Tampilan Notifikasi
@@ -127,7 +127,7 @@ Sistem ini dikelola oleh seorang adminyang bertugas memperbaharui katalog, data 
 		- ASDL Modem
 		
 	  3.1.3 Antarmuka Perangkat Lunak
-		- E-pay
+		- Go-Pay
 		- Kredit Card
 		- API E-Bangking
 
@@ -144,7 +144,7 @@ Sistem ini dikelola oleh seorang adminyang bertugas memperbaharui katalog, data 
 	- User dapat melakukan perpanjangan sewa lahan pemakaman.
 
 3.3 Kebutuhan Data
-
+	- Data diambil dari hasil survei. Data survei tersebut akan diolah kembali sesuai dengan kebutuhan.
 
 3.4 Kebutuhan Non Fungsional
 	Kebutuhan non fungsional yang terdapat pada Sistem Layanan Kematian.
