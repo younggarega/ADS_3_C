@@ -3,6 +3,8 @@
 use Slim\Slim;
 use Noodlehaus\Config;
 
+use Codecourse\User\User;
+
 session_cache_limiter(false);
 session_start();
 
@@ -21,6 +23,11 @@ $app->configureMode($app->config('mode'), function() use ($app) {
 });
 
 require 'database.php';
+
+$app->container->set('user', function() {
+	return new User;
+});
+
 
 // Untuk Test Root
 //$app->get('/test/:name',function($name){
