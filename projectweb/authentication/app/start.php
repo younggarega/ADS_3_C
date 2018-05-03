@@ -2,6 +2,7 @@
 
 use Slim\Slim;
 use Slim\Views\Twig;
+use Slim\Views\TwigExtension;
 
 use Noodlehaus\Config;
 
@@ -32,6 +33,15 @@ $app->container->set('user', function() {
 	return new User;
 });
 
+$view = $app->view();
+
+$view->parserOptions = [
+	'debug' => $app->config->get('twig.debug')
+];
+
+$view->parserExtensions = [
+	new TwigExtension
+];
 
 // Untuk Test Root
 //$app->get('/test/:name',function($name){
