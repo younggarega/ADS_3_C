@@ -145,6 +145,7 @@ Sistem ini dikelola oleh seorang adminyang bertugas memperbaharui katalog, data 
 
 3.3 Kebutuhan Data
 	- Data diambil dari hasil survei. Data survei tersebut akan diolah kembali sesuai dengan kebutuhan.
+	- Berdasarkan statistik tingkat kematian di daerah-daerah
 
 3.4 Kebutuhan Non Fungsional
 	Kebutuhan non fungsional yang terdapat pada Sistem Layanan Kematian.
