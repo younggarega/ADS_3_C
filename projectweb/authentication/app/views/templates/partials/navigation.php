@@ -1,3 +1,3 @@
 <ul>
-	<li><a href="{{ urlFor('Home') }}">Home</a></li>
+	<li><a href="{{ urlFor('home') }}">Home</a></li>
 </ul>
