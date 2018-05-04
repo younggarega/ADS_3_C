@@ -28,6 +28,7 @@ $app->configureMode($app->config('mode'), function() use ($app) {
 });
 
 require 'database.php';
+require 'routes.php';
 
 $app->container->set('user', function() {
 	return new User;
