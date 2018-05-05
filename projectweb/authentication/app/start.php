@@ -7,6 +7,7 @@ use Slim\Views\TwigExtension;
 use Noodlehaus\Config;
 
 use Codecourse\User\User;
+use Codecourse\Helpers\Hash;
 
 session_cache_limiter(false);
 session_start();
@@ -34,8 +35,8 @@ $app->container->set('user', function() {
 	return new User;
 });
 
-$app->container->singleton('hash', function () {
-	return new Hash();
+$app->container->singleton('hash', function () use ($app) {
+	return new Hash($app->config);
 });
 
 $view = $app->view();
@@ -47,6 +48,7 @@ $view->parserOptions = [
 $view->parserExtensions = [
 	new TwigExtension
 ];
+
 
 // Untuk Test Root
 //$app->get('/test/:name',function($name){
