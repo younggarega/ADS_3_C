@@ -34,6 +34,10 @@ $app->container->set('user', function() {
 	return new User;
 });
 
+$app->container->singleton('hash', function () {
+	return new Hash();
+});
+
 $view = $app->view();
 
 $view->parserOptions = [
