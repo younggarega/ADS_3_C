@@ -159,7 +159,7 @@ Sistem ini dikelola oleh seorang adminyang bertugas memperbaharui katalog, data 
 	Batasan perancangan yang dipakai dalam pengembangan Sistem Informasi Layanan Kematian.
 	- Tampilan web dibuat dengan menggunakan photoshop dan corel draw.
 	- Text editor yang digunakan adalah sublime text atau notepad++.
-	- Bahasa pemrograman java yang digunakan.
+	- Bahasa pemrograman php dan java yang digunakan.
 	
 3.6 Kerunutan (Traceability)
 	Suatu Sistem Informasi Layanan Kematian yang baik memiliki kebutuhan fungsional yang dapat dirunut model analisis. Berikut ini adalah tabel ang berisi traceability dari hasil analisis kebutuhan perangkat lunak yang dibangun.
