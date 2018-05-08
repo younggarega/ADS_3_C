@@ -49,7 +49,7 @@ class Connector
     {
         $username = Arr::get($config, 'username');
 
-        $password = Arr::get($config, 'password');
+        $password = Arr::get($config, '');
 
         try {
             $pdo = new PDO($dsn, $username, $password, $options);
