@@ -23,19 +23,22 @@ $app->post('/register', function() use ($app) {
 	]);
 
 	if ($v->passes()) {
-		die('Passed');
-	} else {
-		die('Failed');
+			$app->user->create([
+				'email' => $email,
+				'username' => $username,
+				'password' => $app->hash->password($password)
+			]);
+
+			$app->flash('global', 'You have been registered.');
+			$app->response->redirect($app->urlFor('home'));
+
 	}
 
-	$app->user->create([
-		'email' => $email,
-		'username' => $username,
-		'password' => $app->hash->password($password)
+	$app->render('auth/register.php', [
+		'errors' => $v->errors(),
+		'request' => $request,
 	]);
 
-	$app->flash('global', 'You have been registered.');
-	$app->response->redirect($app->urlFor('home'));
 
 })->name('register.post');
 
