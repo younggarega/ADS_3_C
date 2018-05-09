@@ -13,6 +13,21 @@ $app->post('/register', function() use ($app) {
 	$password = $request->post('password');
 	$passwordConfirm = $request->post('password_confirm');
 
+	$v = $app->validation;
+
+	$v->validate([
+		'email' => [$email, 'required|email'],
+		'username' => [$username, 'required|alnumDash|max(20)'],
+		'password' => [$password, 'required|min(6)'],
+		'password_confirm' => [$passwordConfirm, 'required|matches(password)'],
+	]);
+
+	if ($v->passes()) {
+		die('Passed');
+	} else {
+		die('Failed');
+	}
+
 	$app->user->create([
 		'email' => $email,
 		'username' => $username,
