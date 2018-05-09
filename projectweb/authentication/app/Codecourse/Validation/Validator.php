@@ -1,6 +1,6 @@
 <?php 
 
-namespace Codesource\Validation;
+namespace Codecourse\Validation;
 
 use Violin\Violin;
 
