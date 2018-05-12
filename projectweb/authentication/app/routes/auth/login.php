@@ -20,7 +20,22 @@ $app->post('/login', function() use ($app){
 	]);
 
 	if ($v->passes()) {
-		// log the user in 
+		$user = $app->user
+		->where('username', $identifier) 
+		->orWhere('email', $identifier)
+		->first();
+
+		if ($user && $app->hash->passwordCheck($password, $user->password)) {
+			
+			$_SESSION[$app->config->get('auth.session')] = $user->id;
+			$app->flash('global', 'You are now signed in!');
+			
+		} else {
+			$app->flash('global', 'Could not log you in!');
+
+		}
+			$app->response->redirect($app->urlFor('login'));
+
 	}
 
 	$app->render('auth/login.php', [

@@ -8,12 +8,14 @@
 			<label for="identifier">Username/email</label>
 			<input type="text" name="identifier" id="identifier"
 			>
+			{% if errors.first(identifier) %} {{ errors.first('identifier') }} {% endif %}
 		</div>
 
 		<div>
 			<label for="password">Password</label>
 			<input type="password" name="password" id="password"
 			>
+			{% if errors.first(password) %} {{ errors.first('password') }} {% endif %}
 		</div>
 
 		<div>
